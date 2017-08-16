@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {firebaseConfig} from './config.js';
+import {firebaseConfig} from './config.ts';
 
 @NgModule({
   declarations: [
