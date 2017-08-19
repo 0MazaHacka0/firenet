@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="navbar-header">
+    <h1>FireNet</h1>
+  </div>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active" *ngIf="(router.url === '') | async">
+      <a href="/" class="nav-link">Home</a>
+    </li>
+    <li class="nav-item" *ngIf="!(router.url === '')">
+      <a href="/" class="nav-link">Home</a>
+    </li>
+    <li class="nav-item" *ngIf="!(authService.user | async)">
+      <a href="/login" class="nav-link">Login</a>
+    </li>
+  </ul>
+  <span *ngIf="authService.user | async">
+    <p class="navbar-text navbar-right">Logged In: {{ (authService.user | async)?.displayName }} ({{ (authService.user | async)?.email }})</p>
+  </span>
+  <span *ngIf="!(authService.user | async)">
+    <p class="navbar-text navbar-right">Logged Out</p>
+  </span>
+</nav>

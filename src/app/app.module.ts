@@ -10,6 +10,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from './providers/auth.service';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -17,7 +18,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, LoginPageComponent, HomePageComponent],
+  declarations: [AppComponent, LoginPageComponent, HomePageComponent, NavbarComponent],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(firebaseConfig),
