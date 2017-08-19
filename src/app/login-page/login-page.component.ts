@@ -12,7 +12,7 @@ export class LoginPageComponent{
   constructor(public afService: AF, private router: Router) {}
 
   login() {
-    this.afService.loginWithGoogle.then((data) => {
+    this.afService.loginWithGoogle().then((data) => {
       this.router.navigate(['']);
     })
   }
