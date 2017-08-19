@@ -2,17 +2,10 @@
   <div class="navbar-header">
     <h1>FireNet</h1>
   </div>
-  <ul class="navbar-nav mr-auto">
-    <li class="nav-item active" *ngIf="(router.url === '') | async">
-      <a href="/" class="nav-link">Home</a>
-    </li>
-    <li class="nav-item" *ngIf="!(router.url === '')">
-      <a href="/" class="nav-link">Home</a>
-    </li>
-    <li class="nav-item" *ngIf="!(authService.user | async)">
-      <a href="/login" class="nav-link">Login</a>
-    </li>
-  </ul>
+  <div class="navbar-nav mr-auto">
+    <a routerLink="/" routerLinkActive="active" class="nav-item nav-link">Home</a>
+    <a routerLink="/login" routerLinkActive="active" class="nav-item nav-link" *ngIf="!(authService.user | async)">Login</a>
+  </div>
   <span *ngIf="authService.user | async">
     <p class="navbar-text navbar-right">Logged In: {{ (authService.user | async)?.displayName }} ({{ (authService.user | async)?.email }})</p>
   </span>
