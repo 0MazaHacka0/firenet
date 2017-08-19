@@ -7,14 +7,14 @@ import { AF } from './providers/af';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private isLoggedIn: Boolean;
-  private user_displayName: String;
-  private user_email: String;
+  public isLoggedIn: Boolean;
+  public user_displayName: String;
+  public user_email: String;
   constructor(public authService: AF, private router: Router) {
     this.authService.afAuth.authState.subscribe(
       (auth) => {
         if (auth == null) {
-          console.log("Logged out");
+          console.log('Logged out');
           this.isLoggedIn = false;
           this.user_displayName = '';
           this.user_email = '';
@@ -23,7 +23,7 @@ export class AppComponent {
           this.isLoggedIn = true;
           this.user_displayName = auth.displayName;
           this.user_email = auth.email;
-          console.log("Logged in");
+          console.log('Logged in');
           console.log(auth);
           this.router.navigate(['']);
         }

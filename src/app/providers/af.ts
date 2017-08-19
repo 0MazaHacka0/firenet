@@ -1,6 +1,6 @@
 // src/app/providers/af.ts
 
-import {Injectable} from "@angular/core";
+import {Injectable} from '@angular/core';
 
 import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
