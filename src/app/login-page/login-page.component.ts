@@ -1,19 +1,22 @@
-import { Component } from '@angular/core';
-import { AF } from '../providers/af';
-import { Router } from '@angular/router';
-
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { AF } from "../providers/af";
 @Component({
-  selector: 'app-login-page',
-  templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css']
+  selector: "app-login-page",
+  templateUrl: "./login-page.component.html",
+  styleUrls: ["./login-page.component.css"]
 })
-export class LoginPageComponent{
-
-  constructor(public afService: AF, private router: Router) {}
-
-  login() {
-    this.afService.loginWithGoogle().then((data) => {
-      this.router.navigate(['']);
-    })
+export class LoginPageComponent implements OnInit {
+  constructor(public authService: AF, private router: Router) {}
+  ngOnInit() {}
+  loginWithGoogle() {
+    this.authService.loginWithGoogle().then(data => {
+      this.router.navigate([""]);
+    });
+  }
+  loginWithGithub() {
+    this.authService.loginWithGithub().then(data => {
+      this.router.navigate([""]);
+    });
   }
 }

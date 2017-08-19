@@ -2,7 +2,7 @@
 
 import {Injectable} from "@angular/core";
 
-import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 @Injectable()
 
@@ -14,6 +14,9 @@ export class AF {
    */
   loginWithGoogle() {
     return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  }
+  loginWithGithub() {
+    return this.afAuth.auth.signInWithPopup(new firebase.auth.GithubAuthProvider());
   }
   /**
    * Logs out the current user
