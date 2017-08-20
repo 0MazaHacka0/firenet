@@ -23,10 +23,8 @@
     </ul>
 
     <ul class="navbar-nav">
-      <span *ngIf="authService.user | async">
-            <p class="navbar-text navbar-right">
-              {{ (authService.user | async)?.displayName }} ({{ (authService.user | async)?.email }})
-            </p>
+      <span class="navbar-text" *ngIf="authService.user | async">
+          {{ (authService.user | async)?.displayName }} ({{ (authService.user | async)?.email }})
       </span>
 
       <li class="nav-item dropdown" *ngIf="!(authService.user | async)">
