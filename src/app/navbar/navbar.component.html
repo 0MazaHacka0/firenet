@@ -1,15 +1,47 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="navbar-header">
-    <h1>FireNet</h1>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <a class="navbar-brand" routerLink="/" routerLinkActive="active">FireNet</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+    aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/" routerLinkActive="active">
+          Home <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" *ngIf="authService.user | async">My profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Users</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav">
+      <span *ngIf="authService.user | async">
+            <p class="navbar-text navbar-right">
+              {{ (authService.user | async)?.displayName }} ({{ (authService.user | async)?.email }})
+            </p>
+      </span>
+
+      <li class="nav-item dropdown" *ngIf="!(authService.user | async)">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Log in
+            </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" (click)="loginWithGoogle()">Google</a>
+          <a class="dropdown-item" (click)="loginWithGithub()">GitHub</a>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="authService.user | async" (click)="logout()">Log out</a>
+      </li>
+    </ul>
   </div>
-  <div class="navbar-nav mr-auto">
-    <a routerLink="/" routerLinkActive="active" class="nav-item nav-link">Home</a>
-    <a routerLink="/login" routerLinkActive="active" class="nav-item nav-link" *ngIf="!(authService.user | async)">Login</a>
-  </div>
-  <span *ngIf="authService.user | async">
-    <p class="navbar-text navbar-right">Logged In: {{ (authService.user | async)?.displayName }} ({{ (authService.user | async)?.email }})</p>
-  </span>
-  <span *ngIf="!(authService.user | async)">
-    <p class="navbar-text navbar-right">Logged Out</p>
-  </span>
 </nav>
