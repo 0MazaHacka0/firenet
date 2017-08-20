@@ -6,8 +6,6 @@ body {
 }
 
 body {
-    /* Location of the image */
-    background-image: url('https://unsplash.com/photos/9GDa7nK_4q0/download?force=true');
 
     /* Image is centered vertically and horizontally at all times */
     background-position: center center;
@@ -22,10 +20,6 @@ body {
     /* This is what makes the background image rescale based on its container's size */
     background-size: cover;
 
-    /* Pick a solid background color that will be displayed while the background image is loading */
-    background-color: #464646;
+    background-color: #343a40;
 
-    /* SHORTHAND CSS NOTATION
-   * background: url(background-photo.jpg) center center cover no-repeat fixed;
-   */
 }
