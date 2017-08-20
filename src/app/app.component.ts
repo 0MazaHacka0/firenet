@@ -9,17 +9,6 @@ import { AuthService } from './providers/auth.service';
 })
 export class AppComponent {
   constructor(public authService: AuthService, private router: Router) {
-    this.authService.afAuth.authState.subscribe(
-      (auth) => {
-        if (auth == null) {
-          console.log('Logged out');
-          this.router.navigate(['login']);
-        } else {
-          console.log('Logged in');
-          console.log(auth);
-          this.router.navigate(['']);
-        }
-      }
-    );
+    this.router.navigate(['']);
   }
 }
