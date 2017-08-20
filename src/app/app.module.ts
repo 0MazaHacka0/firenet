@@ -8,17 +8,17 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { AuthService } from './providers/auth.service';
-import { LoginPageComponent } from './login-page/login-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { UserPageComponent } from './user-page/user-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'login', component: LoginPageComponent }
+  { path: 'users', component: UserPageComponent },
 ];
 
 @NgModule({
-  declarations: [AppComponent, LoginPageComponent, HomePageComponent, NavbarComponent],
+  declarations: [AppComponent, HomePageComponent, NavbarComponent, UserPageComponent],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(firebaseConfig),
