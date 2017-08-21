@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-sm-4 mx-auto">
+    <div class="card text-center">
+      <h4 class="card-header">
+        Your profile
+      </h4>
+      <img src="{{ (user | async)?.photoURL}}" alt="" class="card-img-top">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <span>
+            <i class="fa fa-user"></i>
+            {{(user | async)?.displayName}}
+          </span>
+        </li>
+        <li class="list-group-item">
+          <span>
+            <i class="fa fa-envelope">
+              {{(user | async)?.email}}
+            </i>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
