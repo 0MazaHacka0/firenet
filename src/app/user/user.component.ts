@@ -19,10 +19,10 @@ export class UserComponent implements OnInit {
   private uid: string;
   private subscription: Subscription;
 
-  constructor(private activateRoute: ActivatedRoute, private US: UserService, private AS: AuthService) {
+  constructor(private activateRoute: ActivatedRoute, private userService: UserService, private authService: AuthService) {
 
     this.subscription = activateRoute.params.subscribe(params => this.uid = params['uid']);
-    this.user = this.US.getUser(this.uid);
+    this.user = this.userService.getUser(this.uid);
 
   }
 
