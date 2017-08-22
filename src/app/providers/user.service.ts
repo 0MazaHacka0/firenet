@@ -12,7 +12,8 @@ export class UserService {
   }
 
   getUser(uid: string) {
-    return this.db.object('users/' + uid);
+    console.log(this.db.object(`users/${uid}`));
+    return this.db.object(`users/${uid}`);
   }
 
 }
