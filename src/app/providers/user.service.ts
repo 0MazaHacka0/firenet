@@ -11,4 +11,8 @@ export class UserService {
     return this.db.object('users');
   }
 
+  getUser(uid: string) {
+    return this.db.object('users/' + uid);
+  }
+
 }
