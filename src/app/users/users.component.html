@@ -1,3 +1,4 @@
 <div *ngFor="let user of users | async">
-  {{ user.displayName}}
+  {{ user.origUid}}
+  <!-- <app-user [user]="userService.getUser(user.origUid)"></app-user> -->
 </div>

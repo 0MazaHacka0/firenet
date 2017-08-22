@@ -16,9 +16,9 @@ export class AppComponent {
         if (auth == null) {
           console.log('Logged out');
         } else {
-          console.log(auth);
-          console.log(`users/${auth.uid}`);
-          db.object(`users/${auth.uid}`).set(auth.providerData[0]);
+          let user = auth.providerData[0];
+          user['origUid'] = auth.uid;
+          db.object(`users/${auth.uid}`).set(user);
         }
       }
     );
