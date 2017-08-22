@@ -8,7 +8,7 @@ export class UserService {
   constructor(private db: AngularFireDatabase) { }
 
   getAllUsers() {
-    return this.db.object('users');
+    return this.db.list('users');
   }
 
   getUser(uid: string) {
