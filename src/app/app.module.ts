@@ -13,18 +13,18 @@ import { UserService } from './providers/user.service';
 
 import { HomePageComponent } from './home-page/home-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { UserPageComponent } from './user-page/user-page.component';
 import { MeComponent } from './me/me.component';
 import { UserComponent } from './user/user.component';
+import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'users', component: UserPageComponent },
-  { path: 'me', component: MeComponent }
+  { path: 'me', component: MeComponent },
+  { path: 'users', component: UsersComponent }
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomePageComponent, NavbarComponent, UserPageComponent, MeComponent, UserComponent],
+  declarations: [AppComponent, HomePageComponent, NavbarComponent, MeComponent, UserComponent, UsersComponent],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(firebaseConfig),
