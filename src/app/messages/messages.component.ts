@@ -20,14 +20,13 @@ export class MessagesComponent implements OnInit {
     private userService: UserService,
     private authService: AuthService
   ) {
-    
-    this.messages = userService.getAllMessages(this.recipientUid);
     this.authService.getUser().subscribe(snapshot => {
       this.senderUid = snapshot.uid;
     });
   }
 
   ngOnInit() {
+    this.messages = this.userService.getAllMessages(this.recipientUid);
   }
 
   create(message: string) {

@@ -7,8 +7,11 @@ import { AuthService } from '../providers/auth.service';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
+
   constructor(private authService: AuthService, private router: Router) {}
+
   ngOnInit() {}
+
   logout() {
     this.authService.logout();
     this.router.navigate(['login']);

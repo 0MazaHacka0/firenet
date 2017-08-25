@@ -10,12 +10,10 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 })
 export class AppComponent {
   constructor(public authService: AuthService, private router: Router, db: AngularFireDatabase) {
-    // this.router.navigate(['']);
     authService.afAuth.authState.subscribe(
       (auth) => {
-        if (auth == null) {
-          console.log('Logged out');
-        } else {
+        if (auth == null) { }
+        else {
           let user = auth.providerData[0];
           user['origUid'] = auth.uid;
           db.object(`users/${auth.uid}`).set(user);
