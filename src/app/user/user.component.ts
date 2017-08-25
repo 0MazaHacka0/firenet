@@ -17,12 +17,20 @@ import { AuthService } from '../providers/auth.service';
 export class UserComponent implements OnInit {
   @Input() user: Observable<firebase.User>;
 
-  private uid = 'o7FaiAct4pXC9LWnT3noWcSBrpR2';
+  private uid = '';
   private subscription: Subscription;
 
-  constructor(private activateRoute: ActivatedRoute, private userService: UserService, private authService: AuthService) {
-    this.subscription = activateRoute.params.subscribe(params => this.uid = params['uid']);
-    this.user = this.userService.getUser(this.uid);
+  constructor(
+    private activateRoute: ActivatedRoute,
+    private userService: UserService,
+    private authService: AuthService
+  ) {
+    this.subscription = activateRoute.params.subscribe(
+      (params) => {
+        console.log('params', params)
+        this.uid = params['uid']
+        this.user = this.userService.getUser(this.uid);        
+      });
   }
 
   ngOnInit() {

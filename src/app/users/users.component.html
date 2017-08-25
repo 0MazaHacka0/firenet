@@ -1,4 +1,13 @@
 <div *ngFor="let user of users | async">
-  {{ user.origUid}}
+
+  <div class="card" style="width: 20rem;">
+    <img class="card-img-top" src="{{user.photoURL}}" alt="{{user.displayName}}">
+    <div class="card-block">
+      <h4 class="card-title">{{user.displayName}} </h4>
+      <p class="card-text">Some description</p>
+      <a [routerLink]="'/user/' + user.origUid" class="btn btn-primary">Профиль</a>
+    </div>
+  </div>
+
   <!-- <app-user [user]="userService.getUser(user.origUid)"></app-user> -->
 </div>

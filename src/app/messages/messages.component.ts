@@ -16,7 +16,11 @@ export class MessagesComponent implements OnInit {
   private senderUid: string;
   private messages: FirebaseListObservable<any>;
 
-  constructor(private userService: UserService, private authService: AuthService) {
+  constructor(
+    private userService: UserService,
+    private authService: AuthService
+  ) {
+    
     this.messages = userService.getAllMessages(this.recipientUid);
     this.authService.getUser().subscribe(snapshot => {
       this.senderUid = snapshot.uid;

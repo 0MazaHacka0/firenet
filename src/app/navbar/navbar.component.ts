@@ -18,6 +18,7 @@ export class NavbarComponent implements OnInit {
       this.router.navigate(['']);
     });
   }
+
   loginWithGithub() {
     this.authService.loginWithGithub().then(data => {
       this.router.navigate(['']);
