@@ -32,7 +32,9 @@ export class UserComponent implements OnInit {
         this.user = this.userService.getUser(this.uid);
       });
     this.authService.getUser().subscribe(snapshot => {
-      this.user_uid = snapshot.uid;
+      if (snapshot) {
+        this.user_uid = snapshot.uid;
+      }
     });
   }
 
