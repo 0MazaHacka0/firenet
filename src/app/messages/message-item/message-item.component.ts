@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { UserService } from '../../providers/user.service';
+
 @Component({
   selector: 'app-message-item',
   templateUrl: './message-item.component.html',
@@ -8,10 +10,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class MessageItemComponent implements OnInit {
 
   @Input() message: any;
+  senderUser;
 
-  constructor() { }
+  constructor(
+    private userService: UserService
+  ) { }
 
   ngOnInit() {
+    this.senderUser = this.userService.getUser(this.message.senderUid);
   }
 
 }

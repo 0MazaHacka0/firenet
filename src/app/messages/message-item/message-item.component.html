@@ -1,1 +1,5 @@
-<div class="message-item"> {{ message.message }}</div>
+<div class="message-item">
+    <img src="{{ (senderUser | async)?.photoURL}}">
+    {{ (senderUser | async)?.displayName }}
+    {{ message.message }}
+</div>

@@ -31,3 +31,8 @@
 .message-item:hover .actions {
     opacity: 1;
 }
+
+.message-item > img {
+    width: 20px;
+    margin: 5px;
+}
