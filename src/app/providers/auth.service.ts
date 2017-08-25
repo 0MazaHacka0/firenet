@@ -27,4 +27,8 @@ export class AuthService {
   logout() {
     return this.afAuth.auth.signOut();
   }
+
+  getUser() {
+    return this.user;
+  }
 }

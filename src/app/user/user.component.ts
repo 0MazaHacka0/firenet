@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { FirebaseListObservable } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 
 import { ActivatedRoute } from '@angular/router';
@@ -16,14 +17,12 @@ import { AuthService } from '../providers/auth.service';
 export class UserComponent implements OnInit {
   @Input() user: Observable<firebase.User>;
 
-  private uid: string;
+  private uid = 'o7FaiAct4pXC9LWnT3noWcSBrpR2';
   private subscription: Subscription;
 
   constructor(private activateRoute: ActivatedRoute, private userService: UserService, private authService: AuthService) {
-
     this.subscription = activateRoute.params.subscribe(params => this.uid = params['uid']);
     this.user = this.userService.getUser(this.uid);
-
   }
 
   ngOnInit() {

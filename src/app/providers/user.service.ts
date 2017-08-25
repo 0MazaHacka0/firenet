@@ -12,8 +12,20 @@ export class UserService {
   }
 
   getUser(uid: string) {
-    console.log(this.db.object(`users/${uid}`));
     return this.db.object(`users/${uid}`);
   }
 
+  getAllMessages(uid: string) {
+    return this.db.list(`messages/${uid}`);
+  }
+
+  sendMessage(senderUid: string, recipientUid: string, message: string) {
+    this.db.object(`messages/${recipientUid}/${Date.now()}`).set(
+      {
+        'senderUid': senderUid,
+        'message': message,
+        'timestamp': Date.now(),
+      }
+    );
+  }
 }
