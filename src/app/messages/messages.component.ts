@@ -17,8 +17,8 @@ export class MessagesComponent implements OnInit {
   messages: FirebaseListObservable<any>;
 
   constructor(
-    private userService: UserService,
-    private authService: AuthService
+    public userService: UserService,
+    public authService: AuthService
   ) { }
 
   ngOnInit() {
