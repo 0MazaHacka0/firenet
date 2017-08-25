@@ -2,7 +2,7 @@
   <div class="col-sm-4 mx-auto">
     <div class="card text-center">
       <h4 class="card-header">
-        {{ (user | async)?.origUid == uid ? "Your" : (user | async)?.displayName }} profile
+        {{ (user | async)?.origUid == user_uid ? "Your" : (user | async)?.displayName }} profile
       </h4>
       <img src="{{ (user | async)?.photoURL}}" alt="" class="card-img-top">
       <ul class="list-group list-group-flush">

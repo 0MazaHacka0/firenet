@@ -18,6 +18,7 @@ export class UserComponent implements OnInit {
   @Input() user: Observable<firebase.User>;
 
   uid = '';
+  user_uid = '';
   private subscription: Subscription;
 
   constructor(
@@ -30,6 +31,9 @@ export class UserComponent implements OnInit {
         this.uid = params['uid'];
         this.user = this.userService.getUser(this.uid);
       });
+    this.authService.getUser().subscribe(snapshot => {
+      this.user_uid = snapshot.uid;
+    });
   }
 
   ngOnInit() {
