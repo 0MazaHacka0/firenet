@@ -14,7 +14,7 @@ export class MessagesComponent implements OnInit {
 
   @Input() recipientUid: string;
   private senderUid: string;
-  private messages: FirebaseListObservable<any>;
+  messages: FirebaseListObservable<any>;
 
   constructor(
     private userService: UserService,

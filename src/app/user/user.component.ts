@@ -17,7 +17,7 @@ import { AuthService } from '../providers/auth.service';
 export class UserComponent implements OnInit {
   @Input() user: Observable<firebase.User>;
 
-  private uid = '';
+  uid = '';
   private subscription: Subscription;
 
   constructor(

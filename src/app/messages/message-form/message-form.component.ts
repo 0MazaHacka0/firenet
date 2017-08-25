@@ -9,7 +9,7 @@ export class MessageFormComponent implements OnInit {
 
   @Output() create: EventEmitter<string> = new EventEmitter();
 
-  private message = '';
+  message = '';
 
   constructor() { }
 
