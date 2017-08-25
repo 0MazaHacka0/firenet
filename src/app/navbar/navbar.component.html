@@ -32,13 +32,12 @@
               Log in
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" (click)="loginWithGoogle()">Google</a>
-          <a class="dropdown-item" (click)="loginWithGithub()">GitHub</a>
+          <a class="dropdown-item" (click)="signInWithGoogle()">Google</a>
         </div>
       </li>
       
       <li class="nav-item">
-        <a class="nav-link" *ngIf="authService.user | async" (click)="logout()">Log out</a>
+        <a class="nav-link" *ngIf="authService.user | async" (click)="signOut()">Log out</a>
       </li>
     </ul>
   </div>

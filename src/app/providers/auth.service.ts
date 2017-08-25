@@ -3,33 +3,41 @@ import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthService {
   user: Observable<firebase.User>;
+  uid$: Observable<string>;
 
   constructor(public afAuth: AngularFireAuth) {
     this.user = afAuth.authState;
+    this.uid$ = afAuth.authState.map(user => user.uid);
   }
-  /**
-   * Logs in the user
-   * @returns {firebase.Promise<FirebaseAuthState>}
-   */
-  loginWithGoogle() {
-    return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+
+  signIn(provider: firebase.auth.AuthProvider): firebase.Promise<any> {
+    return this.afAuth.auth.signInWithPopup(provider).then(function(){
+    });
   }
-  loginWithGithub() {
-    return this.afAuth.auth.signInWithPopup(new firebase.auth.GithubAuthProvider());
+
+  signInWithGithub(): firebase.Promise<any> {
+    return this.signIn(new firebase.auth.GithubAuthProvider());
   }
-  /**
-   * Logs out the current user
-   */
-  logout() {
-    return this.afAuth.auth.signOut();
+
+  signInWithGoogle(): firebase.Promise<any> {
+    return this.signIn(new firebase.auth.GoogleAuthProvider());
+  }
+
+  signOut(): void {
+    this.afAuth.auth.signOut();
   }
 
   // Get logged in user
   getUser() {
     return this.user;
+  }
+
+  getUid() {
+    return this.uid$;
   }
 }

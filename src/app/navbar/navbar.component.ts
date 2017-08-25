@@ -15,20 +15,20 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
-  loginWithGoogle() {
-    this.authService.loginWithGoogle().then(data => {
+  signInWithGoogle() {
+    this.authService.signInWithGoogle().then(data => {
       this.router.navigate(['']);
     });
   }
 
-  loginWithGithub() {
-    this.authService.loginWithGithub().then(data => {
+  signInWithGithub() {
+    this.authService.signInWithGithub().then(data => {
       this.router.navigate(['']);
     });
   }
 
-  logout() {
-    this.authService.logout();
+  signOut() {
+    this.authService.signOut();
     this.router.navigate(['']);
   }
 
