@@ -1,0 +1,2 @@
+<app-message-form (create)="create($event)" *ngIf="(authService.user | async)"></app-message-form>
+<app-message-list [messages]="messages"></app-message-list>
